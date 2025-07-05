@@ -20,6 +20,21 @@
       <img src="11.png" alt="NNSA Logo" class="logo" />
       <span class="title">NNSA</span>
     </header>
+    <div class="home-container1">
+      <img id="gallery" src="anb/1.jpg" style="max-width:100%; max-height:80vh; border:2px solid #fff; box-shadow:0 0 10px #000;">
+
+<script>
+  let currentImage = 1;
+  const totalImages = 10; // Change this to match the number of images
+  const imgElement = document.getElementById("gallery");
+
+  setInterval(() => {
+    currentImage = (currentImage % totalImages) + 1;
+    imgElement.src = `anb/${currentImage}.jpg`;
+  }, 3000);
+</script>
+
+    </div>
         
     <div class="home-container1">
       
