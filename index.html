@@ -1,58 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NNSA</title>
+    <link rel="icon" type="image/png" href="img/1.png">
+      <meta property="og:title" content="NNSA">
+  <meta property="og:description" content="NNSA's new website">
+  <meta property="og:image" content="img/2.jpeg">
+  <meta property="og:type" content="website">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="11.png" />
+        body {
+            font-family: 'Noto Sans', Arial, sans-serif;
+            background: url('img/2.jpeg') center/cover fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            position: relative;
+        }
 
-    <!-- Fonts & Styles -->
-    <link rel="stylesheet" href="index.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header class="topbar">
-      <img src="11.png" alt="NNSA Logo" class="logo" />
-      <span class="title">NNSA</span>
-    </header>
-    <div class="home-container1">
-      <img id="gallery" src="anb/1.jpg" style="max-width:100%; max-height:80vh; border:2px solid #fff; box-shadow:0 0 10px #000;">
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
 
-<script>
-  let currentImage = 1;
-  const totalImages = 2; // Change this to match the number of images
-  const imgElement = document.getElementById("gallery");
+        /* Top Navigation Bar - Pure Minecraft.net Style */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 0;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-  setInterval(() => {
-    currentImage = (currentImage % totalImages) + 1;
-    imgElement.src = `anb/${currentImage}.jpg`;
-  }, 3000);
-</script>
+        .logo-section {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            gap: 12px;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
 
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .site-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            margin-bottom: 30px;
+            color: #ffffff;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            margin-bottom: 60px;
+            color: #e0e0e0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Button Container - Minecraft.net Style Grid */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Minecraft.net Button Style */
+        .mc-button {
+            background-color: rgb(114, 179, 93);
+            border: none;
+            padding: 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            min-width: 200px;
+            position: relative;
+            transition: all 0.1s ease;
+            box-shadow: 
+                inset -2px -4px 0 rgba(0, 0, 0, 0.2),
+                inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+                0 4px 0 rgb(76, 119, 62),
+                0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .mc-button-inner {
+            padding: 16px 32px;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .mc-button:hover {
+            background-color: rgb(132, 199, 109);
+            box-shadow: 
+                inset -2px -4px 0 rgba(0, 0, 0, 0.2),
+                inset 2px 2px 0 rgba(255, 255, 255, 0.3),
+                0 4px 0 rgb(86, 133, 70),
+                0 6px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .mc-button:active {
+            transform: translateY(2px);
+            box-shadow: 
+                inset -2px -4px 0 rgba(0, 0, 0, 0.3),
+                inset 2px 2px 0 rgba(255, 255, 255, 0.1),
+                0 2px 0 rgb(76, 119, 62),
+                0 3px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Button Variants */
+        .mc-button.btn-primary {
+            background-color: rgb(114, 179, 93);
+            box-shadow: 
+                inset -2px -4px 0 rgba(0, 0, 0, 0.2),
+                inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+                0 4px 0 rgb(76, 119, 62),
+                0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .mc-button.btn-primary:hover {
+            background-color: rgb(132, 199, 109);
+        }
+
+        .mc-button.btn-secondary {
+            background-color: rgb(114, 179, 93);
+            box-shadow: 
+                inset -2px -4px 0 rgba(0, 0, 0, 0.2),
+                inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+                0 4px 0 rgb(76, 119, 62),
+                0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .mc-button.btn-secondary:hover {
+            background-color: rgb(132, 199, 109);
+        }
+
+        .mc-button.btn-info {
+            background-color: rgb(114, 179, 93);
+            box-shadow: 
+                inset -2px -4px 0 rgba(0, 0, 0, 0.2),
+                inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+                0 4px 0 rgb(76, 119, 62),
+                0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .mc-button.btn-info:hover {
+            background-color: rgb(132, 199, 109);
+        }
+
+        .mc-button.btn-warning {
+            background-color: rgb(114, 179, 93);
+            box-shadow: 
+                inset -2px -4px 0 rgba(0, 0, 0, 0.2),
+                inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+                0 4px 0 rgb(76, 119, 62),
+                0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .mc-button.btn-warning:hover {
+            background-color: rgb(132, 199, 109);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .mc-button {
+                min-width: 160px;
+                font-size: 16px;
+            }
+            
+            .mc-button-inner {
+                padding: 14px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo-section">
+            <img src="img/1.png" alt="Logo" class="logo">
+            <div class="site-name">NNSA</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="hero-title">Welcome to NNSA</h1>
+        <p class="hero-subtitle">Our World Our limits</p>
+
+        <div class="button-container">
+            
+            <!-- PLAY BUTTON - Add your href link below -->
+            <a href="minecraft://acceptRealmInvite?inviteID=9HsZEnPoL4Krkb4" class="mc-button btn-primary">
+                <span class="mc-button-inner">Play</span>
+            </a>
+
+            <!-- MAP BUTTON - Add your href link below -->
+            <a href="https://www.chunkbase.com/apps/seed-map#seed=3291&dimension=overworld&x=581&z=-1594" class="mc-button btn-secondary">
+                <span class="mc-button-inner">Map</span>
+            </a>
+
+            <!-- DOWNLOAD WORLD BUTTON - Add your href link below (e.g., link to your world file) -->
+            <a href="https://github.com/nnsa-s/nnsa/releases/tag/world" class="mc-button btn-warning" download>
+                <span class="mc-button-inner">Download World</span>
+            </a>
+
+        </div>
     </div>
-        
-    <div class="home-container1">
-      
-
-      <div class="home-container2">
-        <span class="home-text1">IP: 194.247.42.181</span>
-        <hr class="home-separator" />
-        <span class="home-text2">Port:28465</span>
-      </div>
-      <a href="minecraft://?addExternalServer=NNSA|194.247.42.181:28465">
-        <button class="btn">CLICK TO ADD NNSA </button>
-      </a>
-      <a href="Seed Map - Minecraft App.html#seed=3291&platform=bedrock_1_21_90&dimension=overworld&x=-624&z=-353&zoom=0.566">
-        <button class="btn">MAP </button>
-      </a>
-      <a href="https://www.godlike.cool/nnsa-s">
-        <button class="btn">Start</button>
-      </a>
-    </div>
-  </body>
+</body>
 </html>
